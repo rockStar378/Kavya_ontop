@@ -6,9 +6,9 @@ from pyrogram import filters
 load_dotenv()
 
 # ───── BASIC ─────
-API_ID = int(os.getenv("API_ID", "0"))
-API_HASH = os.getenv("API_HASH", "")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "")
+API_ID = int(os.getenv("API_ID", "29448785"))
+API_HASH = os.getenv("API_HASH", "599574f6aff0a09ebb76305b58e7e9c2")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "7252371475:AAHY_t2H8p2UwoBBfwFYnVLbsOzrVELeE1s")
 
 OWNER_ID = int(os.getenv("OWNER_ID", "8417510906"))
 OWNER_USERNAME = os.getenv("OWNER_USERNAME", "vip_ankit_121")
