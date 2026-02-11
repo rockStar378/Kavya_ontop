@@ -18,7 +18,7 @@ BOT_NAME = os.getenv("BOT_NAME", "˹kavya˼ ♪ [ ᴛᴘʙ ]™")
 ASSUSERNAME = os.getenv("ASSUSERNAME", "ALPHA")
 
 # ───── DATABASE ─────
-MONGO_DB_URI = os.getenv("MONGO_DB_URI")
+MONGO_DB_URI = os.getenv("MONGO_DB_URI", "")
 
 # ───── LIMITS ─────
 DURATION_LIMIT_MIN = int(os.getenv("DURATION_LIMIT", "17000"))
@@ -29,17 +29,17 @@ def time_to_seconds(time):
 
 DURATION_LIMIT = time_to_seconds(f"{DURATION_LIMIT_MIN}:00")
 
-# ───── GROUP / LOG ─────
+# ───── LOG GROUP ─────
 LOG_GROUP_ID = int(os.getenv("LOG_GROUP_ID", "-1002389305159"))
 
 # ───── HEROKU ─────
-HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
-HEROKU_API_KEY = os.getenv("HEROKU_API_KEY")
+HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME", "")
+HEROKU_API_KEY = os.getenv("HEROKU_API_KEY", "")
 
-# ───── UPDATE (SAFE MODE) ─────
-UPSTREAM_REPO = None
-UPSTREAM_BRANCH = None
-GIT_TOKEN = None
+# ───── UPDATE (DISABLED – SAFE) ─────
+UPSTREAM_REPO = ""
+UPSTREAM_BRANCH = ""
+GIT_TOKEN = ""
 
 # ───── API / LINKS ─────
 API_KEY = os.getenv("API_KEY", "StrangerApia3075f5")
@@ -50,8 +50,12 @@ PRIVACY_LINK = os.getenv(
     "https://telegra.ph/Privacy-Policy-for-YukkiMusic-08-30"
 )
 
-SUPPORT_CHANNEL = os.getenv("SUPPORT_CHANNEL", "https://t.me/+gVWf5Y_c5NA5MGY1")
-SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/+gVWf5Y_c5NA5MGY1")
+SUPPORT_CHANNEL = os.getenv(
+    "SUPPORT_CHANNEL", "https://t.me/+gVWf5Y_c5NA5MGY1"
+)
+SUPPORT_CHAT = os.getenv(
+    "SUPPORT_CHAT", "https://t.me/+gVWf5Y_c5NA5MGY1"
+)
 
 # ───── ASSISTANT ─────
 AUTO_LEAVING_ASSISTANT = (
@@ -66,8 +70,8 @@ SONG_DOWNLOAD_DURATION_LIMIT = int(
 )
 
 # ───── SPOTIFY ─────
-SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
-SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
+SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID", "")
+SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET", "")
 
 PLAYLIST_FETCH_LIMIT = int(os.getenv("PLAYLIST_FETCH_LIMIT", "25"))
 
@@ -75,13 +79,13 @@ TG_AUDIO_FILESIZE_LIMIT = int(os.getenv("TG_AUDIO_FILESIZE_LIMIT", "5242880000")
 TG_VIDEO_FILESIZE_LIMIT = int(os.getenv("TG_VIDEO_FILESIZE_LIMIT", "5242880000"))
 
 # ───── STRING SESSIONS ─────
-STRING1 = os.getenv("STRING_SESSION")
-STRING2 = os.getenv("STRING_SESSION2")
-STRING3 = os.getenv("STRING_SESSION3")
-STRING4 = os.getenv("STRING_SESSION4")
-STRING5 = os.getenv("STRING_SESSION5")
-STRING6 = os.getenv("STRING_SESSION6")
-STRING7 = os.getenv("STRING_SESSION7")
+STRING1 = os.getenv("STRING_SESSION", "")
+STRING2 = os.getenv("STRING_SESSION2", "")
+STRING3 = os.getenv("STRING_SESSION3", "")
+STRING4 = os.getenv("STRING_SESSION4", "")
+STRING5 = os.getenv("STRING_SESSION5", "")
+STRING6 = os.getenv("STRING_SESSION6", "")
+STRING7 = os.getenv("STRING_SESSION7", "")
 
 # ───── MISC ─────
 BANNED_USERS = filters.user()
@@ -110,10 +114,10 @@ SPOTIFY_PLAYLIST_IMG_URL = STREAM_IMG_URL
 # ───── URL VALIDATION ─────
 if SUPPORT_CHANNEL and not re.match(r"(?:http|https)://", SUPPORT_CHANNEL):
     raise SystemExit(
-        "[ERROR] - SUPPORT_CHANNEL URL must start with https://"
+        "[ERROR] SUPPORT_CHANNEL must start with https://"
     )
 
 if SUPPORT_CHAT and not re.match(r"(?:http|https)://", SUPPORT_CHAT):
     raise SystemExit(
-        "[ERROR] - SUPPORT_CHAT URL must start with https://"
+        "[ERROR] SUPPORT_CHAT must start with https://"
     )
